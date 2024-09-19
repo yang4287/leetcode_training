@@ -11,12 +11,12 @@ class Solution:
         hashmap最多 26 個字母的計數，因此空間複雜度是 𝑂(1)
         edgeCase 長度不一樣 false
         """
-        s_lenght = len(s)
+        s_length = len(s)
         # 解法1
-        if s_lenght != len(t):
+        if s_length != len(t):
             return False
         count_map = {}
-        for i in range(s_lenght):
+        for i in range(s_length):
             count_map[s[i]] = 1 + count_map.get(s[i], 0)
             count_map[t[i]] = -1 + count_map.get(t[i], 0)
         for v in count_map.values():
