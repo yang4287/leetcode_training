@@ -1,0 +1,29 @@
+# https://leetcode.com/problems/valid-parentheses/
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        hash_map = {")": "(", "]": "[", "}": "{"}
+        stack = []
+
+        # 自己寫法
+        # for w in s:
+        #     if w in hash_map:
+        #         if hash_map[w] not in stack:
+        #             return False
+        #         a = stack.pop()
+        #         if a != (hash_map[w]):
+        #             return False
+        #     else:
+        #         stack.append(w)
+
+        # BEST
+        for w in s:
+            if hash_map.get(w):
+                if (not stack) or (stack[-1] != hash_map[w]):
+                    return False
+                stack.pop()
+            else:
+                stack.append(w)
+
+        return not stack
